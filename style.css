@@ -2,13 +2,26 @@
 
 body {
     background-image: url("https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_foodlogo.png");
+    
+    /*Better background definitions*/
+    background-repeat: no-repeat;   
+    background-position: top center;
+    background-size: contain;
+  
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    margin: 0; /*remove base margin*/
   }
   
   a {
     text-decoration: none;
+    color: #666666;
+    transition: color 0.3s ease; /*Smoother transition*/
+  }
+  
+  a:hover {
+    color: #05A8AA  /*added a hover here with matching blue color*/
   }
   
   /* Navigation */
@@ -19,29 +32,26 @@ body {
   
   nav img {
     display: block;
-    width: 180px;
-    margin: 0px auto;
+    width: 280px;
+    margin: 10px auto 30px auto; /*MAke logo bigger here*/
   }
   
   nav span {
     display: block;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 100;
     letter-spacing: 2px;
-    margin: 10px 0px;
-  }
-  
-  nav a {
-    color: #666666;
+    margin: 15px 0;
   }
   
   /* Content Container */
   
   .content {
     width: 100%;
-    height: 500px;
+    max-width: 1000px; /*MAx width for better readability*/
     margin: 10px auto;
-    overflow: scroll;
+    padding: 0 20px; /*Side padding for small screens*/
+    overflow-y: auto;
   }
   
   /* Content Header */
@@ -50,6 +60,12 @@ body {
     background-image: url("https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_burgerphoto.jpeg");
     background-position: center;
     background-size: cover;
+    height: 200px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    display: flex; /*Wanted to center the heading vercically*/
+    align-items: center;
+    justify-content: center;
   }
   
   .header h1 {
@@ -58,26 +74,26 @@ body {
     font-family: 'Oswald', sans-serif;
     font-size: 40px;
     font-weight: 300;
-    line-height: 40px;
+    line-height: 1.2;
     width: 68%;
-    height: 320px;
     padding: 20px;
-    margin: 0px auto;
+    margin: 0 auto;
+    box-sizing: border-box; /*better box*/
   }
   
   /* Content Body */
   
   .content .body {
     width: 90%;
-    margin: 0px auto;
+    margin: 0 auto;
   }
   
   .body p {
     color: #333333;
     font-weight: 100;
     line-height: 34px;
-    width: 90%;
-    margin-top: 18px;
+    max-width: 800px;  /*Prevent text from strectching too much*/
+    margin: 18px auto 0 auto;
   }
   
   /* Content Button */
@@ -90,12 +106,13 @@ body {
     width: 200px;
     padding: 20px;
     margin: 40px auto;
-    border: 1px solid blue;
+    border: 1px solid #05A8AA; /*added fitting blue color*/
+    background-color: transparent; 
+    transition: all 0.3s ease; /*Better transition*/
   }
   
   .button:hover {
     background-color: #05A8AA;
-    border: 1px solid #05A8AA;
     color: #FFF;
   }
   
@@ -103,16 +120,18 @@ body {
   
   ul.nutrition {
     padding: 20px;
+    display: flex; /*Cooler layout*/
+    flex-wrap: wrap; /*responsive*/
+    justify-content: center; /*Center*/
+    gap: 10px; /*gap between the items*/
   }
   
   ul.nutrition li {
-    display: inline-block;
     background-color: #05A8AA;
     list-style: none;
     width: 200px;
     padding: 10px 20px;
-    margin: 0px 0px 3px 0px;
-    }
+  }
   
   .nutrition .category {
     color: white;
@@ -126,4 +145,23 @@ body {
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 2px;
+  }
+  
+  /* Make it a bit responsive yeey */
+  
+  @media screen and (max-width: 600px) {
+    .header h1 {
+      font-size: 28px;
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .button {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    ul.nutrition li {
+      width: 90%;
+    }
   }
